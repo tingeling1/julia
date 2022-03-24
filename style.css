@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 20vmin);
+  grid-template-rows: repeat(4, 20vmin);
+  gap: 2vmin;
+
+  background-color: #eee;
+  border-radius: 2vmin;
+  padding: 2vmin;
+}
+
+.cell {
+  border-radius: 2vmin;
+  background-color: #ddd;
+  font-size: 6vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tail {
+  --x: 0;
+  --y: 0;
+  left: calc((20vmin + 2vmin) * var(--x) + 2vmin);
+  top: calc((20vmin + 2vmin) * var(--y) + 2vmin);
+
+  position: absolute;
+  height: 20vmin;
+  width: 20vmin;
+
+  background-color: #d8adc7;
+  border-radius: 2vmin;
+  transition: 100ms linear;
+}
+
+.status {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.status span {
+  display: block;
+  font-size: 6vmin;
+  font-family: sans-serif;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00000040;
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  padding: 30px 0;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container span {
+  width: 50%;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+.score-container {
+  display: none;
+}
+
+.start {
+  width: 50%;
+  padding: 8px;
+  font-size: 18px;
+  background-color: #d7adc7;
+  color: #603651;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1;
+  outline: 0;
+}
+
+.pausedScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000040;
+  z-index: 1;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.pausedScreen span {
+  font-size: 6vmin;
+  font-family: sans-serif;
+  color: #fff;
+}
